@@ -4,13 +4,19 @@ import  device from '../../media-query-sizes'
 export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: var(--orange);
     color: var(--textPrimary);
     padding: 0 .5rem;
     box-shadow: var(--boxShadowPrimary);
+    transition: var(--transitionPrimary);
 
     @media ${device.mobileL} {
-        /* put md query styles here */
+
+    }
+
+    @media ${device.tablet} {
+        padding: 1rem;
     }
 
     @media ${device.desktopM} {

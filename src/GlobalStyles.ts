@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         --boxShadowPrimary: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
         --boxShadowPrimaryHover: 3px 3px 4px 4px rgba(0, 0, 0, 0.3);
         --textPrimary: #ffffff;
+        --transitionPrimary: .3s; 
         
     }
 
@@ -24,13 +25,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: 1rem;
-        font-weight: 400;
+        font-size: 1.4rem;
+        font-weight: 500;
     }
 
     h3 {
-        font-size: .8rem;
-        font-weight: 400;
+        font-size: .9rem;
+        font-weight: 500;
     }
 
     p {
@@ -68,11 +69,36 @@ const GlobalStyle = createGlobalStyle`
 
     
     @media ${device.mobileL}{
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 1.0rem;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: .8rem;
+        }
 
     }
 
     @media ${device.tablet}{
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
 
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+        }
     }
 
     @media ${device.desktopM}{
