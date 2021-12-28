@@ -8,6 +8,8 @@ import Button from './components/buttons/buttons';
 
 // styles
 import GlobalStyle from "./GlobalStyles";
+import { ThemeProvider } from 'styled-components';
+import { theme } from './components/buttons/buttons.Styles';
 
 function App() {
   return (
@@ -15,28 +17,28 @@ function App() {
       <Router>
         <Header />
         <Button
-          className='menuButton'
+          theme={theme.menuButton}
           to='/'
           text='Menu Button' 
         />
 
-        <Button
-          className='submitButton'
+        {/* <Button
+          theme={'submitButton'}
           to='/'
           text='Submit Button' 
         />
 
         <Button
-          className='navButton'
+          theme={'navButton'}
           to='/'
           text='Nav Button' 
         />
 
         <Button
-          className='breadCrumb'
+          theme={'breadCrumb'}
           to='/'
           text='Breadcrumb Button' 
-        />
+        /> */}
 
         <GlobalStyle />
       </Router>
