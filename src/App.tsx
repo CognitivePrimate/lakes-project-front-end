@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // imported components
 import Header from './components/header';
-import Button from './components/buttons/buttons';
+import ButtonComponent from './components/buttons/buttons';
 
 // styles
 import GlobalStyle from "./GlobalStyles";
@@ -15,25 +15,25 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Button
-          className={'menu-button'}
+        <ButtonComponent
+          variant={'menuButton'}
           to='/'
           text='Menu Button' 
         />
 
-        {/* <Button
+        {/* <ButtonComponent
           theme={'submitButton'}
           to='/'
           text='Submit Button' 
         />
 
-        <Button
+        <ButtonComponent
           theme={'navButton'}
           to='/'
           text='Nav Button' 
         />
 
-        <Button
+        <ButtonComponent
           theme={'breadCrumb'}
           to='/'
           text='Breadcrumb Button' 
