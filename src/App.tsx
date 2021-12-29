@@ -8,6 +8,7 @@ import Header from './components/header';
 
 // styles
 import GlobalStyle from "./GlobalStyles";
+import MenuButton from './components/buttons/menuButton';
 
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
     <div className="App">
       <Router>
         <Header />
+        <MenuButton 
+          to={'/'}
+          text={'MenuButton'}
+        />
         
 
         <GlobalStyle />

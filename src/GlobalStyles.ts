@@ -9,7 +9,15 @@ const GlobalStyle = createGlobalStyle`
         --boxShadowPrimary: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
         --boxShadowPrimaryHover: 3px 3px 4px 4px rgba(0, 0, 0, 0.3);
         --textPrimary: #ffffff;
-        --transitionPrimary: .3s; 
+        --transitionPrimary: .3s;
+        
+        @keyframes FadeIn {
+            from {
+                opacity: 0;
+            }to{
+                opacity:1;
+            }
+        }
         
     }
 
@@ -65,6 +73,21 @@ const GlobalStyle = createGlobalStyle`
     textarea:focus {
         background: #FEF2EC;
         outline: none;
+    }
+
+    button {
+        margin: .2rem;
+        padding: .3rem .5rem;
+        box-shadow: var(--boxShadowPrimary);
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: .25rem;
+        transition: .3s;
+    }
+
+    button:hover {
+        box-shadow: var(--boxShadowPrimaryHover);
     }
 
     
