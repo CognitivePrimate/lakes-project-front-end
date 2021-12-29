@@ -8,8 +8,7 @@ import Button from './components/buttons/buttons';
 
 // styles
 import GlobalStyle from "./GlobalStyles";
-import { ThemeProvider } from 'styled-components';
-import { theme } from './components/buttons/buttons.Styles';
+
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
       <Router>
         <Header />
         <Button
-          theme={theme.menuButton}
+          className={'menu-button'}
           to='/'
           text='Menu Button' 
         />

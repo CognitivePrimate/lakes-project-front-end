@@ -1,27 +1,28 @@
 import { Link } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { StyledComponent, ThemeProvider } from 'styled-components';
 
-import {ButtonComponent, theme } from './buttons.Styles';
+// css import
+import {  ButtonVariant } from './buttons.Styles';
 
 interface Props {
     // className: string;
     onClick?: () => {};
     to: string;
     text: string;
-    theme: any
+    className: string
 
 
 }
 
-const Button = ({onClick, to, text, theme}: Props) => {
+const ButtonComponent = ({onClick, to, text, className}: Props) => {
 
     return (
-        <ThemeProvider theme={theme}>
-            <Link to={to}>
-                <ButtonComponent onClick={onClick}>{text}</ButtonComponent>
-            </Link>
-        </ThemeProvider>
+       
+        <Link to={to}>
+            <ButtonVariant className={`default, ${className}`} onClick={onClick}>{text}</ButtonVariant>
+        </Link>
+        
     )
 }
 
-export default Button;
+export default ButtonComponent;
