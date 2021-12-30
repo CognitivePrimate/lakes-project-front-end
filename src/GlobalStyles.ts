@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+
     body {
         margin: 0;
         padding: 0;
@@ -35,20 +36,23 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 1.4rem;
         font-weight: 500;
+        color: var(--textPrimary);
     }
 
     h3 {
         font-size: .9rem;
         font-weight: 500;
+        color: var(--textPrimary);
     }
 
     p {
         font-size: 1rem;
+        color: var(--textPrimary);
     }
 
     a {
         text-decoration: none;
-        color: var(---textPrimary);
+        width: 100%;
     }
 
     input {
@@ -78,12 +82,13 @@ const GlobalStyle = createGlobalStyle`
     button {
         margin: .2rem;
         padding: .3rem .5rem;
+        color: var(--textPrimary);
         box-shadow: var(--boxShadowPrimary);
         background: none;
         border: none;
         cursor: pointer;
         border-radius: .25rem;
-        transition: .3s;
+        transition: var(--transitionPrimary)
     }
 
     button:hover {

@@ -9,6 +9,7 @@ import Header from './components/header';
 // styles
 import GlobalStyle from "./GlobalStyles";
 import MenuButton from './components/buttons/menuButton';
+import Homepage from './components/homepage/homepage';
 
 
 function App() {
@@ -16,10 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <MenuButton 
-          to={'/'}
-          text={'MenuButton'}
-        />
+        <Homepage />
         
 
         <GlobalStyle />

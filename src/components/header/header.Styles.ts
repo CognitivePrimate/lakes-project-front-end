@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 6rem;
     background: var(--orange);
     color: var(--textPrimary);
     padding: 0 .5rem;

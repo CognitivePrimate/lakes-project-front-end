@@ -1,19 +1,24 @@
-import { StyledMenuButton } from "./buttons.Styles";
-import { Link } from 'react-router-dom';
+import { ButtonWrapper, StyledMenuButton } from "./buttons.Styles";
+import { Link, Route } from 'react-router-dom';
+import { textChangeRangeIsUnchanged } from "typescript";
 
 interface Props {
     to: string;
     text: string;
+    path: string;
 }
 
-const MenuButton = ({to, text}: Props) => {
+const MenuButton = ({to, text, path}: Props) => {
 
     return(
-        <Link to={to}>
-            <StyledMenuButton>
-                {text}
-            </StyledMenuButton>
-        </Link>
+        <ButtonWrapper>
+            <Route path={path}></Route>
+            <Link to={to}>
+                <StyledMenuButton>
+                    {text}
+                </StyledMenuButton>
+            </Link>
+        </ButtonWrapper>
     )
 }
 
