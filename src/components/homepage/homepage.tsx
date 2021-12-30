@@ -9,24 +9,24 @@ const Homepage = () => {
     return (
         <Wrapper>
             <MenuButton 
-                to={'/schedules'}
+                to={'/SchedulingMenu'}
                 text={'Schedules'}
             />
             <MenuButton 
-                to={'/shiftLogs'}
+                to={'/ShiftLogsMenu'}
                 text={'Shift Logs'}
             />
             <MenuButton 
-                to={'/incidentReports'}
+                to={'/IncidentReportsMenu'}
                 text={'Incident Reports'}
             />
             <MenuButton 
-                to={'/'}
-                text={'MenuButton'}
+                to={'/EmergencyContactsMenu'}
+                text={'Emergency Contacts'}
             />
             <MenuButton 
-                to={'/'}
-                text={'MenuButton'}
+                to={'/VolunteerDatabaseMenu'}
+                text={'Volunteer Database'}
             />
         </Wrapper>
     )
