@@ -12,5 +12,5 @@ export const StyledMenuButton = styled.button`
     padding: 2rem 0;
     width: 100%;
     max-width: 910px;
-
+    animation: FadeIn .7s;
 `
