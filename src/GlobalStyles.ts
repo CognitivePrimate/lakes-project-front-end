@@ -9,7 +9,15 @@ const GlobalStyle = createGlobalStyle`
         --boxShadowPrimary: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
         --boxShadowPrimaryHover: 3px 3px 4px 4px rgba(0, 0, 0, 0.3);
         --textPrimary: #ffffff;
-        --transitionPrimary: .3s; 
+        --transitionPrimary: .3s;
+        
+        @keyframes FadeIn {
+            from {
+                opacity: 0;
+            }to{
+                opacity:1;
+            }
+        }
         
     }
 
@@ -17,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         box-sizing: border-box;
     }
+
 
     body {
         margin: 0;
@@ -27,20 +36,23 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 1.4rem;
         font-weight: 500;
+        color: var(--textPrimary);
     }
 
     h3 {
         font-size: .9rem;
         font-weight: 500;
+        color: var(--textPrimary);
     }
 
     p {
         font-size: 1rem;
+        color: var(--textPrimary);
     }
 
     a {
         text-decoration: none;
-        color: var(---textPrimary);
+        width: 100%;
     }
 
     input {
@@ -65,6 +77,22 @@ const GlobalStyle = createGlobalStyle`
     textarea:focus {
         background: #FEF2EC;
         outline: none;
+    }
+
+    button {
+        margin: .2rem;
+        padding: .3rem .5rem;
+        color: var(--textPrimary);
+        box-shadow: var(--boxShadowPrimary);
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: .25rem;
+        transition: var(--transitionPrimary)
+    }
+
+    button:hover {
+        box-shadow: var(--boxShadowPrimaryHover);
     }
 
     
