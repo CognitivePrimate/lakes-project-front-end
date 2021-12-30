@@ -11,15 +11,16 @@ const GlobalStyle = createGlobalStyle`
         --textPrimary: #ffffff;
         --transitionPrimary: .3s;
         
-        @keyframes FadeIn {
+    }
+
+    @keyframes FadeIn {
             from {
                 opacity: 0;
             }to{
                 opacity:1;
             }
-        }
-        
     }
+
 
     * {
         font-family: 'Roboto', sans-serif;
