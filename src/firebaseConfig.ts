@@ -6,6 +6,9 @@ var firebaseui = require('firebaseui');
 
 // TEST
 
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
   //...
