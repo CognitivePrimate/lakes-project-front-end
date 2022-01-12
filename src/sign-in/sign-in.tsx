@@ -1,35 +1,52 @@
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-// TEST -- google says to require the following modules within source files
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
-
-// TODO: create register form
-
-// TEST
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
+// import firebaseui from 'firebaseui';
+import { useState } from 'react';
+import { auth } from '../firebaseConfig';
 
 // // Initialize the FirebaseUI Widget using Firebase.
 // var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 const SignInPage = () => {
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
 
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // TODO FIX TYPE FROM OBJECT TO...FIREBASE.USER?
+    const [user, setUser] = useState<object | null>({});
 
-    // ui.start('#firebaseui-auth-container', {
-    //     signInOptions: [
-    //       firebase.auth.EmailAuthProvider.PROVIDER_ID
-    //     ],
-    //     // Other config options...
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    })
 
-    //     // Is there an email link sign-in?
-    //     if (ui.isPendingRedirect()) {
-    //         ui.start('#firebaseui-auth-container', uiConfig);
-    //     }
-    //     // This can also be done via:
-    //     if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-    //         ui.start('#firebaseui-auth-container', uiConfig);
-    //     }
-    // });
+    const register = async () => {
+        try {
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword);
+            console.log(user);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const login = async () => {
+        try {
+            const user = await signInWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword);
+            console.log(user);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
+    const logout = async () => {
+        await signOut(auth)
+    };
+
     return(
         <div>
             <div>
@@ -49,7 +66,7 @@ const SignInPage = () => {
             </div>
             <h4> User Logged In: </h4>
 
-            <button>Sign Out</button>
+            <button onClick={logout}>Sign Out</button>
         </div>
     )
 
