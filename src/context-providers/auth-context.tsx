@@ -1,9 +1,9 @@
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import firebase from '../firebaseConfig';
+// import firebase from '../firebaseConfig';
 
 export interface AuthContextModel {
     // user must be recognized by FB or, if not logged in be null
-    user: firebase.User | null;
+    // user: firebase.User | null;
 };
 
 const defaultValue: AuthContextModel = {
@@ -14,13 +14,13 @@ export const AuthContext = createContext(defaultValue);
 
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     // sets initial User state to null
-    const [user, setUser] = useState<firebase.User | null>(null);
+    // const [user, setUser] = useState<firebase.User | null>(null);
 
-    // useEffect to ensure only runs once
-    useEffect(() => {
+    // // useEffect to ensure only runs once
+    // useEffect(() => {
 
-        return firebase.
-    })
+    //     // return firebase
+    // })
 
 
 }
