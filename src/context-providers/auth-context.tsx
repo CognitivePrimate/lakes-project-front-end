@@ -1,5 +1,7 @@
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 // import firebase from '../firebaseConfig';
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 export interface AuthContextModel {
     // user must be recognized by FB or, if not logged in be null

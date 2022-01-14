@@ -54,7 +54,7 @@ const SignInPage = () => {
                 <input placeholder='email'/>
                 <input placeholder='password'/>
 
-                <button>Create User</button>
+                <button onClick={register}>Create User</button>
             </div>
 
             <div>
@@ -62,7 +62,7 @@ const SignInPage = () => {
                 <input placeholder='email'/>
                 <input placeholder="password"/>
 
-                <button>Login</button>
+                <button onClick={login}>Login</button>
             </div>
             <h4> User Logged In: </h4>
 
