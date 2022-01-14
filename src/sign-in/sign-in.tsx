@@ -1,60 +1,30 @@
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
-// import firebaseui from 'firebaseui';
-import { useState } from 'react';
+
+import { useContext, useState } from 'react';
 import { auth } from '../firebaseConfig';
 
-// // Initialize the FirebaseUI Widget using Firebase.
-// var ui = new firebaseui.auth.AuthUI(firebase.auth());
+import { AuthContext } from '../context-providers/auth-context';
 
 const SignInPage = () => {
+    // instantiate context
+    const {signInWithGoogle, register, login, logout} = useContext(AuthContext);
+
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
 
-        // TODO FIX TYPE FROM OBJECT TO...FIREBASE.USER?
-    const [user, setUser] = useState<object | null>({});
-
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-    })
-
-    const register = async () => {
-        try {
-            const user = await createUserWithEmailAndPassword(
-                auth,
-                registerEmail,
-                registerPassword);
-            console.log(user);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const login = async () => {
-        try {
-            const user = await signInWithEmailAndPassword(
-                auth,
-                registerEmail,
-                registerPassword);
-            console.log(user);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    
-    const logout = async () => {
-        await signOut(auth)
-    };
-
     return(
         <div>
+            <div>
+                <button onClick={signInWithGoogle}>Sign in with Google</button>
+            </div>
             <div>
                 <h3>Register User</h3>
                 <input placeholder='email'/>
                 <input placeholder='password'/>
 
-                <button onClick={register}>Create User</button>
+                <button onClick={() => register}>Create User</button>
             </div>
 
             <div>
@@ -62,7 +32,7 @@ const SignInPage = () => {
                 <input placeholder='email'/>
                 <input placeholder="password"/>
 
-                <button onClick={login}>Login</button>
+                <button onClick={() => login}>Login</button>
             </div>
             <h4> User Logged In: </h4>
 

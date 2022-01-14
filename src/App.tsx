@@ -12,11 +12,13 @@ import Homepage from './components/homepage/homepage';
 import SchedulingMenu from './components/scheduling/scheduling-menu';
 import CreateNewSchedule from './components/scheduling/create-new-schedule';
 import SignInPage from './sign-in/sign-in';
+import { AuthContextProvider } from './context-providers/auth-context';
 
 
 function App() {
   return (
-    <div className="App">
+    <AuthContextProvider>
+      <div className="App">
       <Router>
         <Header />
         <Routes>
@@ -29,6 +31,7 @@ function App() {
         <GlobalStyle />
       </Router>
     </div>
+    </AuthContextProvider>
   );
 }
 
