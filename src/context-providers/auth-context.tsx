@@ -11,7 +11,6 @@ import {
     signOut } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 
-
 export interface AuthContextModel {
     // user if not logged in be null FIX ANY TYPE HOLY SHIT
     user: any | null;
@@ -38,6 +37,21 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     // USEEFFECT HERE?! THEN REDIRECT?
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
+            // TODO
+            // get authIdToken from Firebase
+            // send authIdToken to backend
+            // fetch volunteer data
+            // set user with v data from backend
+            // TEST -- retrieve token from Firebase
+            if (auth.currentUser != null) {
+                auth.currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                    // Send token to your backend via HTTPS
+                    // ...
+                  }).catch(function(error) {
+                    // Handle error
+                  });
+            }
+            // END TEST
             setUser(currentUser);
             console.log('currentUser', currentUser);
         })
@@ -49,7 +63,6 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
         try {
             signInWithRedirect(auth, provider).then((results) => {
                 console.log('SignInWithRedirectResults:', results);
-
             })
         } catch (error) {
             console.log('error:', error)
@@ -63,7 +76,7 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
                 auth,
                 registerEmail,
                 registerPassword);
-            console.log(user);
+            console.log('register user:', user);
         } catch (error) {
             console.log(error);
         }
