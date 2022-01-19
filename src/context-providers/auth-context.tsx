@@ -9,6 +9,7 @@ import {
     createUserWithEmailAndPassword, 
     onAuthStateChanged, 
     signOut } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
 
 
 export interface AuthContextModel {
@@ -33,9 +34,14 @@ export const AuthContext = createContext(defaultValue);
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     // sets initial User state to null BUT HOLY SHIT FIX ANY TYPE
     const [user, setUser] = useState<any | null>(null);
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-    })
+    
+    // USEEFFECT HERE?! THEN REDIRECT?
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            console.log('currentUser', currentUser);
+        })
+    }, [])
 
     // to sign in with Google via a redirect
     const provider = new GoogleAuthProvider();
@@ -76,7 +82,8 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     };
     
     const logout = async () => {
-        await signOut(auth)
+        await signOut(auth);
+
     };
 
 

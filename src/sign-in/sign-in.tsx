@@ -9,10 +9,8 @@ const SignInPage = () => {
     // instantiate context
     const {signInWithGoogle, register, login, logout} = useContext(AuthContext);
 
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     return(
         <div>
@@ -21,16 +19,16 @@ const SignInPage = () => {
             </div>
             <div>
                 <h3>Register User</h3>
-                <input placeholder='email'/>
-                <input placeholder='password'/>
+                <input placeholder='email' onChange={(e) => {setEmail(e.target.value)}}/>
+                <input placeholder='password' onChange={(e) => {setPassword(e.target.value)}}/>
 
                 <button onClick={() => register}>Create User</button>
             </div>
 
             <div>
                 <h3>Login</h3>
-                <input placeholder='email'/>
-                <input placeholder="password"/>
+                <input placeholder='email' onChange={(e) => {setEmail(e.target.value)}}/>
+                <input placeholder="password" onChange={(e) => {setPassword(e.target.value)}}/>
 
                 <button onClick={() => login}>Login</button>
             </div>
