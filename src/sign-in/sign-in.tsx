@@ -17,6 +17,7 @@ const SignInPage = () => {
 
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+        console.log('user:', user)
     })
 
     const register = async () => {
