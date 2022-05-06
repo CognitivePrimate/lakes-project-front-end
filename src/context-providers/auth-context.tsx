@@ -42,6 +42,7 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
             // send authIdToken to backend
             // fetch volunteer data
             // set user with v data from backend
+            // OR JUST USE MONGODB OBJECTID??
             // TEST -- retrieve token from Firebase
             if (auth.currentUser != null) {
                 auth.currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
