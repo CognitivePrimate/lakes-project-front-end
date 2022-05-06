@@ -8,12 +8,14 @@ import {
     signInWithEmailAndPassword, 
     createUserWithEmailAndPassword, 
     onAuthStateChanged, 
-    signOut } from 'firebase/auth';
+    signOut, 
+    User} from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 
 export interface AuthContextModel {
+    [x: string]: ReactNode;
     // user if not logged in be null FIX ANY TYPE HOLY SHIT
-    user: any | null;
+    user: User | null;
     signInWithGoogle: () => void;
     register: (registerEmail: string, registerPassword: string) => void;
     login: (loginEmail: string, loginPassword: string) => void;
@@ -46,6 +48,7 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
             // TEST -- retrieve token from Firebase
             if (auth.currentUser != null) {
                 auth.currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                    console.log('IdToken', idToken)
                     // Send token to your backend via HTTPS
                     // ...
                   }).catch(function(error) {

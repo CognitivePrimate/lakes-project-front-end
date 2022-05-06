@@ -12,6 +12,9 @@ const SignInPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const user = useContext(AuthContext)
+
+
     return(
         <div>
             <div>
@@ -32,7 +35,7 @@ const SignInPage = () => {
 
                 <button onClick={() => login}>Login</button>
             </div>
-            <h4> User Logged In: </h4>
+            <h4> User Logged In: {user.user?.displayName} </h4>
 
             <button onClick={logout}>Sign Out</button>
         </div>
