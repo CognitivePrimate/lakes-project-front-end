@@ -1,5 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
-
+import {Route} from 'react-router-dom'
 import { useContext, useState } from 'react';
 import { auth } from '../firebaseConfig';
 
@@ -13,7 +13,6 @@ const SignInPage = () => {
     const [password, setPassword] = useState("");
 
     const user = useContext(AuthContext)
-
 
     return(
         <div>
@@ -40,8 +39,6 @@ const SignInPage = () => {
             <button onClick={logout}>Sign Out</button>
         </div>
     )
-
-    
 }
 
 export default SignInPage;

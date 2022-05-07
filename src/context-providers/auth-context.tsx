@@ -13,7 +13,6 @@ import {
 import { FirebaseError } from 'firebase/app';
 
 export interface AuthContextModel {
-    [x: string]: ReactNode;
     // user if not logged in be null FIX ANY TYPE HOLY SHIT
     user: User | null;
     signInWithGoogle: () => void;
@@ -35,6 +34,8 @@ export const AuthContext = createContext(defaultValue);
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     // sets initial User state to null BUT HOLY SHIT FIX ANY TYPE
     const [user, setUser] = useState<any | null>(null);
+
+    // const functions = require('firebase-functions')
     
     // USEEFFECT HERE?! THEN REDIRECT?
     useEffect(() => {
@@ -51,11 +52,13 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
                     console.log('IdToken', idToken)
                     // Send token to your backend via HTTPS
                     // ...
+
                   }).catch(function(error) {
                     // Handle error
                   });
             }
             // END TEST
+            //THIS SHOULD ONLY 
             setUser(currentUser);
             console.log('currentUser', currentUser);
         })
@@ -79,7 +82,10 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
             const user = await createUserWithEmailAndPassword(
                 auth,
                 registerEmail,
-                registerPassword);
+                registerPassword
+            );
+            setUser(user)
+            
             console.log('register user:', user);
         } catch (error) {
             console.log(error);
