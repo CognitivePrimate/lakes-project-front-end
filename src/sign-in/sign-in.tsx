@@ -1,9 +1,9 @@
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
-import {Route} from 'react-router-dom'
+import {Route, Navigate} from 'react-router-dom'
 import { useContext, useState } from 'react';
 import { auth } from '../firebaseConfig';
-
 import { AuthContext } from '../context-providers/auth-context';
+
 
 const SignInPage = () => {
     // instantiate context
@@ -16,6 +16,7 @@ const SignInPage = () => {
 
     return(
         <div>
+            {user !== null && user.user !== null ? <Navigate to='/Homepage' replace={true} /> : null}
             <div>
                 <button onClick={signInWithGoogle}>Sign in with Google</button>
             </div>

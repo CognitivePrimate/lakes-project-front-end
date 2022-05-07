@@ -11,6 +11,7 @@ import {
     signOut, 
     User} from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export interface AuthContextModel {
     // user if not logged in be null FIX ANY TYPE HOLY SHIT
@@ -34,7 +35,7 @@ export const AuthContext = createContext(defaultValue);
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     // sets initial User state to null BUT HOLY SHIT FIX ANY TYPE
     const [user, setUser] = useState<any | null>(null);
-
+    // let navigate = useNavigate()
     // const functions = require('firebase-functions')
     
     // USEEFFECT HERE?! THEN REDIRECT?
@@ -105,8 +106,8 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     };
     
     const logout = async () => {
+        setUser(null)
         await signOut(auth);
-
     };
 
 
