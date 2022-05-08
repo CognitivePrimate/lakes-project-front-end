@@ -11,15 +11,19 @@ import GlobalStyle from "./GlobalStyles";
 import Homepage from './components/homepage/homepage';
 import SchedulingMenu from './components/scheduling/scheduling-menu';
 import CreateNewSchedule from './components/scheduling/create-new-schedule';
+import SignInPage from './sign-in/sign-in';
+import { AuthContextProvider } from './context-providers/auth-context';
 
 
 function App() {
   return (
-    <div className="App">
+    <AuthContextProvider>
+      <div className="App">
       <Router>
         <Header />
         <Routes>
-          <Route index element={<Homepage />}/>
+          <Route index element={<SignInPage />}/>
+          <Route path='Homepage' element={<Homepage />}/>
           <Route path='SchedulingMenu' element={<SchedulingMenu />}/>
           <Route path='CreateNewSchedule' element={<CreateNewSchedule/>}/>
 
@@ -27,6 +31,7 @@ function App() {
         <GlobalStyle />
       </Router>
     </div>
+    </AuthContextProvider>
   );
 }
 

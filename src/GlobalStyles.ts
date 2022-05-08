@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
         padding: .3rem .5rem;
         color: var(--textPrimary);
         box-shadow: var(--boxShadowPrimary);
-        background: none;
+        background: var(--orange);
         border: none;
         cursor: pointer;
         border-radius: .25rem;
@@ -94,6 +94,7 @@ const GlobalStyle = createGlobalStyle`
 
     button:hover {
         box-shadow: var(--boxShadowPrimaryHover);
+        background: var(--orangeHover);
     }
 
     
