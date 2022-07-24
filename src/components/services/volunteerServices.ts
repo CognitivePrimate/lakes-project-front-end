@@ -31,6 +31,7 @@ export const createNewVolunteer = async(volunteer: Volunteer): Promise<any> => {
 
     try{
         const res = axios.post(`${baseUrl}/Volunteers`, payload, header)
+        console.log('header:', header)
         return (await res).data
     } catch(e) {
         console.error(e)
