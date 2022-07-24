@@ -14,7 +14,7 @@ import { FirebaseError } from 'firebase/app';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
 
 export interface AuthContextModel {
     // user if not logged in be null FIX ANY TYPE HOLY SHIT
@@ -57,9 +57,9 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
                     // Send token to your backend via HTTPS
                     
 
-                  }).catch(function(error) {
+                }).catch(function(error) {
                     // Handle error
-                  });
+                });
             }
             // END TEST
             //THIS SHOULD ONLY 

@@ -45,9 +45,9 @@ export function fetchVolunteers(): Promise<Volunteer[]> {
     return axios.get(`${baseURL}/Volunteers`)
 }
 
-export function fetchVolunteerById(): Promise<Volunteer> {
+export function fetchExistingVolunteerAndSetUser(token: string): Promise<Volunteer> {
     try{
-        return axios.get(`${baseURL}/Volunteers/${volunteer}`)
+        return axios.get(`${baseURL}/Volunteers/${volunteer._id}`)
     } catch (e: any){
         console.log('error', e, typeof(e))
         return e
