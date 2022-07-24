@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext, AuthContextModel } from '../context-providers/auth-context';
+import { AuthContext, AuthContextModel } from '../../context-providers/auth-context';
 
 // styles
-import { Wrapper } from './header/header.Styles';
+import { Wrapper } from './header.Styles';
 
 
 

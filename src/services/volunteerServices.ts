@@ -1,11 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
-import Volunteer from '../../model/volunteer';
-import {fire} from '../../firebaseConfig'
+import Volunteer from '../model/volunteer';
+import {fire} from '../firebaseConfig'
+import volunteer from '../model/volunteer';
 
 
 //firebase APIs to database
-const baseUrl = 'https://us-central1-lof-backend.cloudfunctions.net/api'
-
+// const baseURL = 'https://us-central1-lof-backend.cloudfunctions.net/api'
+const baseURL = process.env.REACT_APP_BASE_URL
 //create user tokens for backend auth? i think
 const createToken = async () => {
     const user = fire.auth().currentUser;
@@ -30,7 +31,7 @@ export const createNewVolunteer = async(volunteer: Volunteer): Promise<any> => {
     }
 
     try{
-        const res = axios.post(`${baseUrl}/Volunteers`, payload, header)
+        const res = axios.post(`${baseURL}/Volunteers`, payload, header)
         console.log('header:', header)
         return (await res).data
     } catch(e) {
@@ -41,5 +42,14 @@ export const createNewVolunteer = async(volunteer: Volunteer): Promise<any> => {
 
 //Get all volunteers
 export function fetchVolunteers(): Promise<Volunteer[]> {
-    return axios.get(`${baseUrl}/Volunteers`)
+    return axios.get(`${baseURL}/Volunteers`)
+}
+
+export function fetchVolunteerById(): Promise<Volunteer> {
+    try{
+        return axios.get(`${baseURL}/Volunteers/${volunteer}`)
+    } catch (e: any){
+        console.log('error', e, typeof(e))
+        return e
+    }
 }

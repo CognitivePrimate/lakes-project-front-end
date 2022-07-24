@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // imported components
-import Header from './components/header';
+import Header from './components/header/header';
 
 
 // styles
@@ -13,6 +13,7 @@ import SchedulingMenu from './components/scheduling/scheduling-menu';
 import CreateNewSchedule from './components/scheduling/create-new-schedule';
 import SignInPage from './sign-in/sign-in';
 import { AuthContextProvider } from './context-providers/auth-context';
+import VolunteerDataBaseMenu from './components/volunteerDataBaseMenu/volunteerDataBaseMenu';
 
 
 function App() {
@@ -22,11 +23,11 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route index element={<SignInPage />}/>
+        <Route index element={<SignInPage />}/>
           <Route path='Homepage' element={<Homepage />}/>
           <Route path='SchedulingMenu' element={<SchedulingMenu />}/>
           <Route path='CreateNewSchedule' element={<CreateNewSchedule/>}/>
-
+          <Route path='/VolunteerDatabaseMenu' element={<VolunteerDataBaseMenu />}/>
         </Routes>
         <GlobalStyle />
       </Router>
