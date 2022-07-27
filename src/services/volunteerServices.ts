@@ -45,9 +45,13 @@ export function fetchVolunteers(): Promise<Volunteer[]> {
     return axios.get(`${baseURL}/Volunteers`)
 }
 
-export function fetchExistingVolunteerAndSetUser(token: string): Promise<Volunteer> {
+export function fetchExistingVolunteerAndSetUser(token: string): Promise<any> {
+    console.log('fetchvolfunctest')
     try{
-        return axios.get(`${baseURL}/Volunteers/${volunteer._id}`)
+        return axios.post(`${baseURL}/volunteerDB/tokenAuth`, token).then((res) => {
+            console.log('FERes.data:', res.data)
+            return res.data
+        })
     } catch (e: any){
         console.log('error', e, typeof(e))
         return e

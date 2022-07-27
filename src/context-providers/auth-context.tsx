@@ -13,6 +13,7 @@ import {
 import { FirebaseError } from 'firebase/app';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { fetchExistingVolunteerAndSetUser } from '../services/volunteerServices';
 
 // const baseURL = process.env.REACT_APP_BASE_URL
 
@@ -55,7 +56,7 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
                 auth.currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
                     console.log('IdToken', idToken)
                     // Send token to your backend via HTTPS
-                    
+                    fetchExistingVolunteerAndSetUser(idToken)
 
                 }).catch(function(error) {
                     // Handle error
