@@ -13,7 +13,7 @@
     "@types/styled-components": "^5.1.18",
     "axios": "^0.27.2",
     "dotenv": "^11.0.0",
-    "firebase": "^9.6.1",
+    "firebase": "^9.9.1",
     "firebaseui": "^6.0.0",
     "mongodb": "^4.5.0",
     "react": "^17.0.2",

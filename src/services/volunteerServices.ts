@@ -5,8 +5,10 @@ import volunteer from '../model/volunteer';
 
 
 //firebase APIs to database
-// const baseURL = 'https://us-central1-lof-backend.cloudfunctions.net/api'
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
+
+//local baseURL when running backend fb emulators
+const baseURL = process.env.REACT_APP_LOCAL_BASE_URL
 //create user tokens for backend auth? i think
 const createToken = async () => {
     const user = fire.auth().currentUser;
