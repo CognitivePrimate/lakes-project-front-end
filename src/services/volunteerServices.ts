@@ -49,8 +49,16 @@ export function fetchVolunteers(): Promise<Volunteer[]> {
 
 export function fetchExistingVolunteerAndSetUser(token: string): Promise<any> {
     console.log('fetchvolfunctest')
+    const headers = {
+        headers: {
+            authorization: 'Bearer ' + token
+        } 
+        // authorization: {
+        //     'Bearer ': token
+        // }
+    }
     try{
-        return axios.post(`${baseURL}/volunteerDB/tokenAuth`, token).then((res) => {
+        return axios.post(`${baseURL}/volunteerDB/tokenAuth`, token, headers ).then((res) => {
             console.log('FERes.data:', res.data)
             return res.data
         })
@@ -59,3 +67,4 @@ export function fetchExistingVolunteerAndSetUser(token: string): Promise<any> {
         return e
     }
 }
+
